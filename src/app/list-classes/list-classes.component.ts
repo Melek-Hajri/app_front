@@ -41,5 +41,4 @@ OnDeleteclasse(id:number){
     }
   );
 }
-
 }
