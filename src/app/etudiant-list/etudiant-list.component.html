@@ -1,1 +1,48 @@
-<p>etudiant-list works!</p>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>Liste <b>Etudiants</b></h2></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CIN</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Classe</th>
+                    <th>Tel</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                    <th>Daten</th>
+                    <th>Lieun</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let etd of listEtudiants">
+                    <td>{{ etd.id}}</td>
+                    <td>{{ etd.cin }}</td>
+                    <td>{{ etd.nom }}</td>
+                    <td>{{ etd.prenom }}</td>
+                    <td>{{ etd.classe?.nomClasse}}</td>
+                    <td>{{ etd.tel }}</td>
+                    <td>{{ etd.email}}</td>
+                    <td>{{ etd.adresse }}</td>
+                    <td>{{ etd.daten }}</td>
+                    <td>{{ etd.lieun}}</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip" ><i class="material-icons">&#xE03B;</i></a>
+                        <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateEtudiant(etd.id)"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="OnDeleteEtudiant(etd.id)"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
