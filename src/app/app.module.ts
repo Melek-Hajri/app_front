@@ -7,12 +7,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ListClassesComponent } from './list-classes/list-classes.component';
 import { UpdateClasseComponent } from './update-classe/update-classe.component';
+import { EtudiantCreateComponent } from './etudiant-create/etudiant-create.component';
+import { EtudiantReadComponent } from './etudiant-read/etudiant-read.component';
+import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.component';
+import { EtudiantDeleteComponent } from './etudiant-delete/etudiant-delete.component';
+import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListClassesComponent,
-    UpdateClasseComponent
+    UpdateClasseComponent,
+    EtudiantCreateComponent,
+    EtudiantReadComponent,
+    EtudiantUpdateComponent,
+    EtudiantDeleteComponent,
+    EtudiantListComponent
   ],
   imports: [
     BrowserModule,
