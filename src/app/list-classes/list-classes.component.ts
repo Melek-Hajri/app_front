@@ -28,7 +28,7 @@ OnUpdateClasse(id:number){
    
 
 }
-OnDeleteUser(id:number){
+OnDeleteclasse(id:number){
   this.classServ.deleteclasse(id).subscribe(
     (list)=>{
       this.classServ.getallclasses().subscribe(
