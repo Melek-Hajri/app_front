@@ -3,6 +3,7 @@ import { classe } from '../Models/classe.model';
 import { ClasseServService } from '../Services/classe-serv.service';
 import {  Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-list-classes',
   templateUrl: './list-classes.component.html',
