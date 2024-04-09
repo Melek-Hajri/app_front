@@ -81,3 +81,69 @@ table.table .form-control.error {
 table.table td .add {
     display: none;
 }
+.button-container {
+    display: flex;
+    justify-content: center; /* Aligne les boutons horizontalement */
+    margin-bottom: 20px; /* Espacement en dessous des boutons */
+}
+
+.button-container button {
+    margin-right: 10px; /* Espacement horizontal entre les boutons */
+}
+.container-fluid {
+    padding: 20px; /* Ajoute de l'espace autour du conteneur */
+}
+.container-fluid {
+    padding: 20px; /* Ajoute de l'espace autour du conteneur */
+}
+
+.table-wrapper {
+    width: 100%; /* Fait en sorte que le tableau occupe toute la largeur */
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 10px; /* Ajoute des coins arrondis au tableau */
+}
+
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 20px; /* Augmente l'espace en dessous du titre */
+}
+
+.table-title h2 {
+    margin: 0; /* Supprime les marges autour du titre */
+    font-size: 24px; /* Augmente la taille du titre */
+}
+
+.table-title .add-new {
+    float: right;
+    height: 40px; /* Augmente la hauteur du bouton */
+    font-size: 16px; /* Augmente la taille du texte du bouton */
+    border-radius: 5px; /* Ajoute des coins arrondis au bouton */
+    line-height: 1.5; /* Augmente l'espacement entre les lignes du texte */
+}
+
+.table {
+    table-layout: auto; /* Utilise la largeur automatique des colonnes */
+    font-size: 16px; /* Augmente la taille du texte dans le tableau */
+}
+
+.table th,
+.table td {
+    padding: 12px; /* Augmente l'espacement intérieur des cellules */
+}
+
+.table th {
+    background-color: #f5f5f5; /* Ajoute une couleur de fond aux en-têtes de colonne */
+    font-weight: bold; /* Met en gras le texte des en-têtes de colonne */
+    text-align: center; /* Centre le texte des en-têtes de colonne */
+}
+
+.table td {
+    text-align: center; /* Centre le texte dans les cellules du tableau */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Ajoute une couleur de fond alternative aux lignes du tableau */
+}
+

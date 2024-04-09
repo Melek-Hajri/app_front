@@ -1,38 +1,63 @@
-<div class="container">
+<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist"
+    style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active rounded-5" id="home-tab2" href="/listmatieres" role="tab"
+            aria-selected="true">Matiere</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="profile-tab2" href="/listmodules" role="tab" aria-selected="false">Module</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="contact-tab2" href="/listclasses" role="tab" aria-selected="false">Classe</a>
+    </li>
+    <!-- Ajout du quatrième bouton -->
+    <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="extra-tab" href="/listspec" role="tab" aria-selected="false">Specialite</a>
+    </li>
+</ul>
+
+
+
+<div class="container-fluid">
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>Modules <b>Details</b></h2></div>
-                <div class="col-sm-4">
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new" (click)="addNewModule()"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
-                                    </div>
+                <div class="col-sm-8">
+                    <h2>Modules <b>Details</b></h2>
+                </div>
+                <div class="col-sm-4 text-end">
+                    <!-- Utilisez la classe "text-end" pour a- Utilisez la classe "text-end" pour aligner le contenu à droite -->
+
+                    <button type="button" class="btn btn-info add-new" (click)="addNewModule()"><i
+                            class="fa fa-plus"></i> Add New</button>
+                </div>
             </div>
         </div>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>id Module</th>
-                    <th>nom Module</th>
-                    <th>coefficient Module</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let classes of listmodules">
-                    <td>{{ classes.idModule}}</td>
-                    <td>{{ classes.nomModule }}</td>
-                    <td>{{ classes.CoifModule }}</td>
-                    <td>
-                        <a class="add" title="Add" data-toggle="tooltip">
-                            <i class="material-icons">&#xE03B;</i>
-                          </a>
-                      <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateModule(classes.idModule)"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="OnDeletemodule(classes.idModule)"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                           </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>id Module</th>
+                <th>nom Module</th>
+                <th>coefficient Module</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let classes of listmodules">
+                <td>{{ classes.idModule}}</td>
+                <td>{{ classes.nomModule }}</td>
+                <td>{{ classes.CoifModule }}</td>
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip">
+                        <i class="material-icons">&#xE03B;</i>
+                    </a>
+                    <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateModule(classes.idModule)"><i
+                            class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip" (click)="OnDeletemodule(classes.idModule)"><i
+                            class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </div>
