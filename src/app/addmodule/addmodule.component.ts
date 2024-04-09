@@ -29,7 +29,7 @@ export class AddmoduleComponent implements  OnInit {
             (u)=>{
               this.frominput.controls['id'].setValue(u.idModule);
               this.frominput.controls['nommod'].setValue(u.nomModule);
-              this.frominput.controls['coifmod'].setValue(u.CoifModule);
+              this.frominput.controls['coifmod'].setValue(u.coifModule);
 
             }
           )
@@ -42,7 +42,7 @@ export class AddmoduleComponent implements  OnInit {
     let usr: module = new module();
     usr.idModule = this.frominput.controls['id'].value;
     usr.nomModule = this.frominput.controls['nommod'].value;
-    usr.CoifModule = this.frominput.controls['coifmod'].value;
+    usr.coifModule = this.frominput.controls['coifmod'].value;
     
     this.modserv.addmodule(usr).subscribe(
       (u) => {
