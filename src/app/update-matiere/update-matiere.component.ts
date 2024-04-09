@@ -29,7 +29,7 @@ export class UpdateMatiereComponent implements OnInit {
             (u)=>{
               this.frominput.controls['id'].setValue(u.idMatiere);
               this.frominput.controls['nommat'].setValue(u.nomMatiere);
-              this.frominput.controls['coiffmat'].setValue(u.CoifMatiere);
+              this.frominput.controls['coiffmat'].setValue(u.coifMatiere);
 
             }
           )
@@ -42,7 +42,7 @@ export class UpdateMatiereComponent implements OnInit {
     let usr: Matiere = new Matiere();
     usr.idMatiere = this.frominput.controls['id'].value;
     usr.nomMatiere = this.frominput.controls['nommat'].value;
-    usr.CoifMatiere = this.frominput.controls['coiffmat'].value;
+    usr.coifMatiere = this.frominput.controls['coiffmat'].value;
     
     this.matserv.updatematiere(this.id, usr).subscribe(
       (u) => {
