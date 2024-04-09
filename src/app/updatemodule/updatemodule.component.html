@@ -6,18 +6,18 @@
             <h3 class="panel-title">Update Classe</h3>
           </div>
           <div class="panel-body">
-            <form [formGroup]="frominput" (ngSubmit)="updateclasse()">
+            <form [formGroup]="frominput" (ngSubmit)="updatemodule()">
               <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="text" class="form-control" id="id" formControlName="id" >
+                <input type="number" class="form-control" id="id" formControlName="id" readonly>
               </div>
               <div class="form-group">
-                <label for="nomclasse">Nom Classe:</label>
-                <input type="text" class="form-control" id="nomclasse" formControlName="nomclasse">
+                <label for="nommod">Nom Module:</label>
+                <input type="text" class="form-control" id="nommod" formControlName="nommod">
               </div>
               <div class="form-group">
-                <label for="niveauclasse">Niveau Classe:</label>
-                <input type="text" class="form-control" id="niveauclasse" formControlName="niveauclasse">
+                <label for="coifmod">coefficient Module:</label>
+                <input type="text" class="form-control" id="coifmod" formControlName="coifmod">
               </div>
               <button type="submit" class="btn btn-primary">Update</button>
             </form>

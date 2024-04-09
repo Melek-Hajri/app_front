@@ -2,18 +2,20 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div>
+                <div class="col-sm-8"><h2>CLasses <b>Details</b></h2></div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" (click)="addNewClasse()"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                                    </div>
             </div>
         </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>idclasse</th>
-                    <th>nomClasse</th>
-                    <th>Phone</th>
+                    <th>id classe</th>
+                    <th>nom Classe</th>
+                    <th>niveau Classe</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -23,11 +25,13 @@
                     <td>{{ classes.nomClasse }}</td>
                     <td>{{ classes.niveauClasse }}</td>
                     <td>
-                        <a class="add" title="Add" data-toggle="tooltip" ><i class="material-icons">&#xE03B;</i></a>
-                        <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateClasse(classes.idclasse)"><i class="material-icons">&#xE254;</i></a>
+                        <a class="add" title="Add" data-toggle="tooltip">
+                            <i class="material-icons">&#xE03B;</i>
+                          </a>
+                      <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateClasse(classes.idclasse)"><i class="material-icons">&#xE254;</i></a>
                         <a class="delete" title="Delete" data-toggle="tooltip" (click)="OnDeleteclasse(classes.idclasse)"><i class="material-icons">&#xE872;</i></a>
                     </td>
-                </tr>
+                           </tr>
             </tbody>
         </table>
     </div>

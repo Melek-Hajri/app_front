@@ -41,4 +41,10 @@ OnDeleteclasse(id:number){
     }
   );
 }
+addNewClasse(): void {
+  // Ajoutez le nouvel objet de classe au tableau ou effectuez d'autres opérations si nécessaire
+ 
+  // Naviguez vers le composant approprié
+  this.route.navigate(['/addclasse']);
+}
 }

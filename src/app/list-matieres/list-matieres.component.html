@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>Matieres <b>Details</b></h2></div>
+                <div class="col-sm-4">
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" (click)="addNewMatiere()"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id matiere</th>
+                    <th>nom matiere</th>
+                    <th>coefficient matiere</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mat of listmatieres">
+                    <td>{{ mat.idMatiere}}</td>
+                    <td>{{ mat.nomMatiere }}</td>
+                    <td>{{ mat.CoifMatiere }}</td>
+                    <td>
+                        <a class="add" title="Add" data-toggle="tooltip">
+                            <i class="material-icons">&#xE03B;</i>
+                          </a>
+                      <a class="edit" title="Edit" data-toggle="tooltip" (click)="OnUpdateMatiere(mat.idMatiere)"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete" title="Delete" data-toggle="tooltip" (click)="OnDeletematiere(mat.idMatiere)"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                           </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -6,10 +6,10 @@
             <h3 class="panel-title">Update Classe</h3>
           </div>
           <div class="panel-body">
-            <form [formGroup]="frominput" (ngSubmit)="updateclasse()">
+            <form [formGroup]="frominput" (ngSubmit)="addclasse()">
               <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="text" class="form-control" id="id" formControlName="id" >
+                <input type="text" class="form-control" id="id" formControlName="id" readonly>
               </div>
               <div class="form-group">
                 <label for="nomclasse">Nom Classe:</label>
@@ -17,9 +17,9 @@
               </div>
               <div class="form-group">
                 <label for="niveauclasse">Niveau Classe:</label>
-                <input type="text" class="form-control" id="niveauclasse" formControlName="niveauclasse">
+                <input type="number" class="form-control" id="niveauclasse" formControlName="niveauclasse">
               </div>
-              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="submit" class="btn btn-primary">ADD</button>
             </form>
           </div>
         </div>

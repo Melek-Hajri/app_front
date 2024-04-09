@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Update Module</h3>
+          </div>
+          <div class="panel-body">
+            <form [formGroup]="frominput" (ngSubmit)="addmodule()">
+              <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" formControlName="id" readonly>
+              </div>
+              <div class="form-group">
+                <label for="nommod">Nom Module:</label>
+                <input type="text" class="form-control" id="nommod" formControlName="nommod">
+              </div>
+              <div class="form-group">
+                <label for="coifmod">coefficient Module:</label>
+                <input type="text" class="form-control" id="coifmod" formControlName="coifmod">
+              </div>
+              <button type="submit" class="btn btn-primary">ADD</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

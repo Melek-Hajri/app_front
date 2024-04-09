@@ -5,11 +5,11 @@ import { ClasseServService } from '../Services/classe-serv.service';
 import { classe } from '../Models/classe.model';
 
 @Component({
-  selector: 'app-update-classe',
-  templateUrl: './update-classe.component.html',
-  styleUrl: './update-classe.component.scss'
+  selector: 'app-addclasse',
+  templateUrl: './addclasse.component.html',
+  styleUrl: './addclasse.component.scss'
 })
-export class UpdateClasseComponent  implements OnInit {
+export class AddclasseComponent implements OnInit {
   id!:number;
   frominput!: FormGroup;
   
@@ -17,19 +17,17 @@ export class UpdateClasseComponent  implements OnInit {
   
   ngOnInit(): void {
     this.frominput = this.fb.group({
-      'id': [],
+      'id': [''],
       'nomclasse': [''],
-      'niveauclasse': [ '']
+      'niveauclasse': ['']
     });
     this.activaterouter.params.subscribe(
       (params)=>{
-        const id = +params['id']; // Convertir en nombre
-        this.id = id;
-          //this.id=params['id']
+          this.id=params['iduser']
           //console.log(this.id)
           this.claseserv.getclassebyid(this.id).subscribe(
             (u)=>{
-             this.frominput.controls['id'].setValue(u.idclasse);
+              this.frominput.controls['id'].setValue(u.idclasse);
               this.frominput.controls['nomclasse'].setValue(u.nomClasse);
               this.frominput.controls['niveauclasse'].setValue(u.niveauClasse);
 
@@ -38,18 +36,16 @@ export class UpdateClasseComponent  implements OnInit {
       }
     )
   }
-  updateclasse() {
+  addclasse() {
     let usr : classe = new classe();
     usr.idclasse=this.frominput.controls['id'].value;
     usr.nomClasse=this.frominput.controls['nomclasse'].value;
     usr.niveauClasse=this.frominput.controls['niveauclasse'].value;
-    
-    this.claseserv.updateclasse(this.id,usr).subscribe(
+    this.claseserv.addclasse(usr).subscribe(
       (u)=>{
   this.route.navigate(['/listclasses'])
       }
     )
     }
     
-
 }

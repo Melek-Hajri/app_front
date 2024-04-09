@@ -12,6 +12,16 @@ import { EtudiantReadComponent } from './etudiant-read/etudiant-read.component';
 import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.component';
 import { EtudiantDeleteComponent } from './etudiant-delete/etudiant-delete.component';
 import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
+import { AddclasseComponent } from './addclasse/addclasse.component';
+import { ListMatieresComponent } from './list-matieres/list-matieres.component';
+import { UpdateMatiereComponent } from './update-matiere/update-matiere.component';
+import { AddMatiereComponent } from './add-matiere/add-matiere.component';
+import { ListSpecialitesComponent } from './list-specialites/list-specialites.component';
+import { UpdateSpecialiteComponent } from './update-specialite/update-specialite.component';
+import { AddSpecialiteComponent } from './add-specialite/add-specialite.component';
+import { ListMModulesComponent } from './list-mmodules/list-mmodules.component';
+import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
+import { AddmoduleComponent } from './addmodule/addmodule.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +32,17 @@ import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
     EtudiantReadComponent,
     EtudiantUpdateComponent,
     EtudiantDeleteComponent,
-    EtudiantListComponent
+    EtudiantListComponent,
+    AddclasseComponent,
+    ListMatieresComponent,
+    UpdateMatiereComponent,
+    AddMatiereComponent,
+    ListSpecialitesComponent,
+    UpdateSpecialiteComponent,
+    AddSpecialiteComponent,
+    ListMModulesComponent,
+    UpdatemoduleComponent,
+    AddmoduleComponent
   ],
   imports: [
     BrowserModule,
