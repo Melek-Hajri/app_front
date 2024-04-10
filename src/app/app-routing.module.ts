@@ -13,6 +13,8 @@ import { ListSpecialitesComponent } from './list-specialites/list-specialites.co
 import { ListMModulesComponent } from './list-mmodules/list-mmodules.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 import { AddmoduleComponent } from './addmodule/addmodule.component';
+import { EtudiantCreateComponent } from './etudiant-create/etudiant-create.component';
+import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.component';
 
 const routes: Routes = [
   {path:"listclasses",component:ListClassesComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:"addspec",component:AddSpecialiteComponent},
   {path:"listmodules",component:ListMModulesComponent},
   {path:"updatemodule/:id",component:UpdatemoduleComponent},
-  {path:"addmodule",component:AddmoduleComponent}
+  {path:"addmodule",component:AddmoduleComponent},
+  {path:"addEtudiant",component:EtudiantCreateComponent},
+  {path:"updateEtudiant/:id",component:EtudiantUpdateComponent}
 
 
 

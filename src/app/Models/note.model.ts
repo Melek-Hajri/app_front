@@ -3,6 +3,6 @@ import { Matiere } from "./matiere.model";
 
 export class Note {
     id!: number;
-    type!: TypeNote;
+    type!: TypeNote; // Test, Ds ou Examen
     matiere!: Matiere;
   }

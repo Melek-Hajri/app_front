@@ -15,10 +15,10 @@ export class EtudiantListComponent implements OnInit{
   }
 ngOnInit(): void {
  this.etdServ.getAllEtudiants().subscribe(
-(tab)=>{
-  this.listEtudiants=tab;
+    (tab)=>{
+      this.listEtudiants=tab;
 
-}
+    }
     
   );
 }
@@ -33,11 +33,14 @@ OnDeleteEtudiant(id:number){
       this.etdServ.getAllEtudiants().subscribe(
         (list)=>{
           this.listEtudiants=list
-          this.route.navigate(['/listEtudiants'])
+          //this.route.navigate(['/listeEtudiants'])
         }
       )
     
     }
   );
+}
+addNewEtudiant(): void {
+  this.route.navigate(['/addEtudiant']);
 }
 }

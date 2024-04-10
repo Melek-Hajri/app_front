@@ -26,16 +26,19 @@
         <div class="panel-body">
           <form [formGroup]="frominput" (ngSubmit)="addmatiere()">
             <div class="form-group">
-              <label for="id">ID:</label>
-              <input type="text" class="form-control" id="id" formControlName="id" readonly>
-            </div>
-            <div class="form-group">
               <label for="nommat">Nom Matiere:</label>
               <input type="text" class="form-control" id="nommat" formControlName="nommat">
             </div>
             <div class="form-group">
               <label for="coiffmat">coefficient Matiere:</label>
               <input type="number" class="form-control" id="coiffmat" formControlName="coiffmat">
+            </div>
+            <div class="form-group">
+              <label for="module">Module:</label>
+              <select class="form-control" id="module" formControlName="module">
+                <option value="">Selectionner un module</option>
+                <option *ngFor="let module of modules" [value]="module.idModule">{{ module.nomModule }}</option>
+              </select>
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary btn-add">ADD</button>

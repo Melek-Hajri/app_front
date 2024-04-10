@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EtudiantDeleteComponent } from './etudiant-delete.component';
+import { NoteListComponent } from './note-list.component';
 
-describe('EtudiantDeleteComponent', () => {
-  let component: EtudiantDeleteComponent;
-  let fixture: ComponentFixture<EtudiantDeleteComponent>;
+describe('NoteListComponent', () => {
+  let component: NoteListComponent;
+  let fixture: ComponentFixture<NoteListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EtudiantDeleteComponent]
+      declarations: [NoteListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(EtudiantDeleteComponent);
+    fixture = TestBed.createComponent(NoteListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
