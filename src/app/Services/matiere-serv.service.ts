@@ -24,12 +24,14 @@ export class MatiereServService {
   }
   getallmatieres():Observable<Matiere[]>{
     return this.http.get<Matiere[]>(environment.host+"/getAllMatieres/")
-
   }
   getmatierebyid(id:number):Observable<Matiere>{
     return this.http.get<Matiere>(environment.host+"/getMatiereByID/"+id)
   }
   addmatieremodule(idmat: number, id:number):Observable<void>{
     return this.http.put<void>(environment.host + "/addModuleMatiere/" + idmat + "/" + id, {});
+  }
+  getMatiereByMod(idMOD: number):Observable<Matiere[]>{
+    return this.http.get<Matiere[]>(environment.host+"/getMatiereByMod/" + idMOD)
   }
 }

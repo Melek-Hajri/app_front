@@ -21,20 +21,6 @@ export class AddmoduleComponent implements  OnInit {
       'nommod': [''],
       'coifmod': ['']
     });
-    this.activaterouter.params.subscribe(
-      (params)=>{
-          this.id=params['id']
-          //console.log(this.id)
-          this.modserv.getmodulebyid(this.id).subscribe(
-            (u)=>{
-              this.frominput.controls['id'].setValue(u.idModule);
-              this.frominput.controls['nommod'].setValue(u.nomModule);
-              this.frominput.controls['coifmod'].setValue(u.coifModule);
-
-            }
-          )
-      }
-    )
   }
   addmodule() {
     // Vérifiez si l'ID est défini

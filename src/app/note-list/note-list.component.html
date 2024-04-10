@@ -1,1 +1,56 @@
-<p>note-list works!</p>
+<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="home-tab2" href="/listeEtudiants" role="tab" aria-selected="true">Etudiant</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active rounded-5" id="profile-tab2" href="/listeNotes" role="tab" aria-selected="false">Note</a>
+    </li>
+    <!-- <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="contact-tab2" href="/listclasses" role="tab" aria-selected="false">Classe</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link rounded-5" id="extra-tab" href="/listspec" role="tab" aria-selected="false">Specialite</a>
+    </li> -->
+</ul>
+<form [formGroup]="form">
+    <label for="classe">Classe:</label>
+    <select class="form-control" id="cls" formControlName="cls" (change)="onClassChange()">
+      <option value="">Selectionner une classe</option>
+      <!-- Loop through available classes and create options -->
+      <option *ngFor="let classe of classes" [value]="classe.idclasse">{{ classe.nomClasse }}</option>
+    </select>
+</form>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Etudiant</th>
+        <th *ngFor="let module of modules" [attr.colspan]="getMatieresMod(module.idModule).length*3">
+          <div>{{ module.nomModule }}</div>
+        </th>
+      </tr>
+      <tr>
+        <th></th>
+        <ng-container *ngFor="let module of modules">
+          <ng-container *ngFor="let matiere of getMatieresMod(module.idModule)">
+            <th>{{ matiere.nomMatiere }}</th>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let etd of etds">
+            <tr>
+              <td>{{ etd.nom }} {{ etd.prenom }}</td>
+              <ng-container *ngFor="let module of modules">
+                <ng-container *ngFor="let matiere of getMatieresMod(module.idModule)">
+                  <td>{{ getNote(etd.id, matiere.idMatiere, Test) }}</td>
+                  <td>{{ getNote(etd.id, matiere.idMatiere, Ds) }}</td>
+                  <td>{{ getNote(etd.id, matiere.idMatiere, Examen) }}</td>
+                </ng-container>
+              </ng-container>
+            </tr>
+          </ng-container>
+    </tbody>
+  </table>
+  

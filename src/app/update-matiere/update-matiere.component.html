@@ -21,14 +21,10 @@
       <div class="col-md-8">
           <div class="panel panel-default">
               <div class="panel-heading text-center">
-                  <h3 class="panel-title">Update Matiere</h3>
+                  <h3 class="panel-title">Modifier Matiere</h3>
               </div>
               <div class="panel-body">
                   <form [formGroup]="frominput" (ngSubmit)="updatematiere()">
-                      <div class="form-group">
-                          <label for="id">ID:</label>
-                          <input type="number" class="form-control" id="id" formControlName="id" readonly>
-                      </div>
                       <div class="form-group">
                           <label for="nommat">Nom Matiere:</label>
                           <input type="text" class="form-control" id="nommat" formControlName="nommat">
@@ -45,7 +41,7 @@
                         </select>
                       </div>
                       <div class="text-center">
-                          <button type="submit" class="btn btn-primary btn-update">Update</button>
+                          <button type="submit" class="btn btn-primary btn-update">Modifier</button>
                       </div>
                   </form>
               </div>

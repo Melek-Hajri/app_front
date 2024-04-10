@@ -29,4 +29,7 @@ export class ModuleServService {
   getmodulebyid(id:number):Observable<module>{
     return this.http.get<module>(environment.host+"/getModuleByID/"+id)
   }
+  getModuleByClasse(idCLASSE: number):Observable<module[]>{
+    return this.http.get<module[]>(environment.host+"/getModuleByClasse/" + idCLASSE)
+  }
 }

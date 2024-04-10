@@ -35,7 +35,15 @@ export class NoteService {
     return this.http.put<void>(environment.host + "/updateNote/" + id, updatedNote);
   }
 
-  getNotesByEtudiantClasse(idETD: number, idCLASSE: number): Observable<Note[]> {
-    return this.http.get<Note[]>(environment.host + "/getNotesByEtudiantAndClasse/" + idETD + "/" + idCLASSE);
+  getNotesByEtudiantMatiere(idETD: number, idMATIERE: number): Observable<Note[]> {
+    return this.http.get<Note[]>(environment.host + "/getNotesByEtudiantAndMatiere/" + idETD + "/" + idMATIERE);
+  }
+
+  getNotesByEtudiant(idETD: number): Observable<Note[]> {
+    return this.http.get<Note[]>(environment.host + "/getNotesByEtudiant/" + idETD );
+  }
+
+  getNotesByClasse(idCLASSE: number): Observable<Note[]> {
+    return this.http.get<Note[]>(environment.host + "/getNotesByClasse/" + idCLASSE );
   }
 }
