@@ -11,11 +11,13 @@ import { Matiere } from '../Models/matiere.model';
 import { MatiereServService } from '../Services/matiere-serv.service';
 import { TypeNote } from '../Models/enums';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable, forkJoin } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-note-list',
   templateUrl: './note-list.component.html',
-  styleUrl: './note-list.component.scss'
+  styleUrls: ['./note-list.component.scss']
 })
 export class NoteListComponent implements OnInit {
   form!: FormGroup;
@@ -51,10 +53,8 @@ export class NoteListComponent implements OnInit {
   onClassChange(): void {
     this.clsId = this.form.get('cls')?.value;
     if (this.clsId) {
-      console.log("clsId:"+this.clsId);
       this.loadData();
     } else {
-      console.log("empty");
       this.modules = [];
       this.etds = [];
       this.notes = [];
@@ -62,40 +62,44 @@ export class NoteListComponent implements OnInit {
   }
 
   loadData(): void {
-    console.log("loadData");
     this.clsServ.getclassebyid(this.clsId).subscribe(cls=> {
       this.cls = cls;
-      //console.log("hello");
-      //console.log(this.cls);
     });
-    this.modServ.getModuleByClasse(this.clsId).subscribe(modules => {
-      this.modules = modules;
-      console.log(this.modules);
+    this.modules = [];
+    this.matieres = [];
+    this.modServ.getModuleByClasse(this.clsId).pipe(
+      switchMap(modules => {
+        const filteredModules = modules.filter(module => module.listeMatieres.length > 0);
+        this.modules = filteredModules;
+        const matiereRequests = modules.map(module => this.matServ.getMatiereByMod(module.idModule));
+        return forkJoin(matiereRequests);
+      })
+    ).subscribe(matieres => {
+      this.matieres = matieres.flat();
     });
+
     this.etdServ.afficherEtudiantsClasse(this.clsId).subscribe(etds => {
       this.etds = etds;
-      //console.log(this.etds);
+      console.log(this.etds);
     });
-  }
-
-  getMatieresMod(modId: number) :Matiere[] {
-    this.matieres = [];
-    this.matServ.getMatiereByMod(modId).subscribe(matieres => {
-      this.matieres = matieres;
-      console.log("getmatieres"+matieres)
-    })
-    return this.matieres;
   }
 
   getNote(etdId: number, matId: number, type: TypeNote): number | null {
-    this.notes = [];
-    this.noteServ.getNotesByEtudiantMatiere(etdId, matId).subscribe(notes => {
-      this.notes = notes;
-    });
-    for(let n of this.notes){
-      if(n.type = type) {return n.note;}
+    const filteredNotes = this.etds.filter(etd => etd.id === etdId)[0].notes.filter(note => note.matiere.idMatiere === matId && note.type === type);
+    if (filteredNotes.length > 0) {
+      return filteredNotes[0].note;
     }
     return null;
+    // return this.noteServ.getNotesByEtudiant(etdId).pipe(
+    //   map(notes => {
+    //     this.notes = notes;
+    //     console.log(this.notes); // Log the notes after the HTTP request completes
+    //     const filteredNotes = this.notes.filter(note => note.matiere.idMatiere === matId && note.type === type);
+    //     if (filteredNotes.length > 0) {
+    //       return filteredNotes[0].note;
+    //     }
+    //     return null;
+    //   })
+    // );
   }
-
 }

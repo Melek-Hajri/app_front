@@ -1,4 +1,5 @@
 import { TypeNote } from "./enums";
+import { Etudiant } from "./etudiant.model";
 import { Matiere } from "./matiere.model";
 
 export class Note {
@@ -6,4 +7,5 @@ export class Note {
     type!: TypeNote; // Test, Ds ou Examen
     note!: number;
     matiere!: Matiere;
+    etudiant!: Etudiant;
   }

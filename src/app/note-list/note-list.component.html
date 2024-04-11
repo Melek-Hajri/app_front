@@ -13,42 +13,47 @@
     </li> -->
 </ul>
 <form [formGroup]="form">
+  <div class="form-group">
     <label for="classe">Classe:</label>
     <select class="form-control" id="cls" formControlName="cls" (change)="onClassChange()">
       <option value="">Selectionner une classe</option>
-      <!-- Loop through available classes and create options -->
       <option *ngFor="let classe of classes" [value]="classe.idclasse">{{ classe.nomClasse }}</option>
     </select>
+  </div>
 </form>
 
 <table class="table">
     <thead>
       <tr>
         <th>Etudiant</th>
-        <th *ngFor="let module of modules" [attr.colspan]="getMatieresMod(module.idModule).length*3">
+        <th *ngFor="let module of modules" [attr.colspan]="module.listeMatieres.length*3">
           <div>{{ module.nomModule }}</div>
         </th>
       </tr>
       <tr>
         <th></th>
-        <ng-container *ngFor="let module of modules">
-          <ng-container *ngFor="let matiere of getMatieresMod(module.idModule)">
-            <th>{{ matiere.nomMatiere }}</th>
-          </ng-container>
+        <ng-container *ngFor="let matiere of matieres">
+          <th colspan="3">{{ matiere.nomMatiere }}</th>
+        </ng-container>
+      </tr>
+      <tr>
+        <th></th>
+        <ng-container *ngFor="let matiere of matieres">
+          <th>Test</th>
+          <th>Ds</th>
+          <th>Examen</th>
         </ng-container>
       </tr>
     </thead>
     <tbody>
         <ng-container *ngFor="let etd of etds">
             <tr>
-              <td>{{ etd.nom }} {{ etd.prenom }}</td>
-              <ng-container *ngFor="let module of modules">
-                <ng-container *ngFor="let matiere of getMatieresMod(module.idModule)">
+              <td>{{ etd.cin }} - {{ etd.nom }} {{ etd.prenom }}</td>
+                <ng-container *ngFor="let matiere of matieres">
                   <td>{{ getNote(etd.id, matiere.idMatiere, Test) }}</td>
                   <td>{{ getNote(etd.id, matiere.idMatiere, Ds) }}</td>
                   <td>{{ getNote(etd.id, matiere.idMatiere, Examen) }}</td>
                 </ng-container>
-              </ng-container>
             </tr>
           </ng-container>
     </tbody>

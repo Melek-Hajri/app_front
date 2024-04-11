@@ -12,5 +12,5 @@ export class Etudiant {
     nom!: string;
     prenom!: string;
     classe?: classe;
-    notes?: Note[];
+    notes!: Note[];
   }

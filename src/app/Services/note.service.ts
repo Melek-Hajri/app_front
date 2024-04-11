@@ -46,4 +46,10 @@ export class NoteService {
   getNotesByClasse(idCLASSE: number): Observable<Note[]> {
     return this.http.get<Note[]>(environment.host + "/getNotesByClasse/" + idCLASSE );
   }
+  addEtudiantToNote(idNote: number, idEtd: number): Observable<void> {
+    return this.http.put<void>(environment.host + "/addEtudiantToNote/" + idNote + "/" + idEtd, {});
+  }
+  addMatiereToNote(idNote: number, idMat: number): Observable<void> {
+    return this.http.put<void>(environment.host + "/addMatiereToNote/" + idNote + "/" + idMat, {});
+  }
 }

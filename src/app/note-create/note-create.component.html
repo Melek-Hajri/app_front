@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <h3 class="panel-title">Add Note</h3>
+          </div>
+          <div class="panel-body">
+            <form [formGroup]="form" (ngSubmit)="addNote()">
+              <div class="form-group">
+                <label for="type">Type:</label>
+                <select class="form-control" id="type" formControlName="type">
+                  <option value="">Select Type</option>
+                  <option value={{Test}}>Test</option>
+                  <option value={{Ds}}>Ds</option>
+                  <option value={{Examen}}>Examen</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="note">Note:</label>
+                <input type="number" class="form-control" id="note" formControlName="note">
+              </div>
+              <div class="form-group">
+                <label for="matiere">Matiere:</label>
+                <select class="form-control" id="matiere" formControlName="matiere">
+                  <option value="">Select Matiere</option>
+                  <option *ngFor="let matiere of matieres" [value]="matiere.idMatiere">{{ matiere.nomMatiere }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="etudiant">Etudiant:</label>
+                <select class="form-control" id="etudiant" formControlName="etudiant">
+                  <option value="">Select Etudiant</option>
+                  <option *ngFor="let etudiant of etudiants" [value]="etudiant.id">{{ etudiant.nom }} {{ etudiant.prenom }} - {{ etudiant.cin }}</option>
+                </select>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

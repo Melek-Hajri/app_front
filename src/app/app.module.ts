@@ -22,6 +22,7 @@ import { ListMModulesComponent } from './list-mmodules/list-mmodules.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 import { AddmoduleComponent } from './addmodule/addmodule.component';
 import { NoteListComponent } from './note-list/note-list.component';
+import { NoteCreateComponent } from './note-create/note-create.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NoteListComponent } from './note-list/note-list.component';
     ListMModulesComponent,
     UpdatemoduleComponent,
     AddmoduleComponent,
-    NoteListComponent
+    NoteListComponent,
+    NoteCreateComponent
   ],
   imports: [
     BrowserModule,
