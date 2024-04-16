@@ -29,12 +29,14 @@
         <th *ngFor="let module of modules" [attr.colspan]="module.listeMatieres.length*3">
           <div>{{ module.nomModule }}</div>
         </th>
+        <th>Actions</th>
       </tr>
       <tr>
         <th></th>
         <ng-container *ngFor="let matiere of matieres">
           <th colspan="3">{{ matiere.nomMatiere }}</th>
         </ng-container>
+        <th></th>
       </tr>
       <tr>
         <th></th>
@@ -43,6 +45,7 @@
           <th>Ds</th>
           <th>Examen</th>
         </ng-container>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -50,10 +53,26 @@
             <tr>
               <td>{{ etd.cin }} - {{ etd.nom }} {{ etd.prenom }}</td>
                 <ng-container *ngFor="let matiere of matieres">
-                  <td>{{ getNote(etd.id, matiere.idMatiere, Test) }}</td>
-                  <td>{{ getNote(etd.id, matiere.idMatiere, Ds) }}</td>
-                  <td>{{ getNote(etd.id, matiere.idMatiere, Examen) }}</td>
+                  <ng-container *ngIf="editingId !== etd.id; else editMode">
+                    <td>{{ getNote(etd.id, matiere.idMatiere, Test) }}</td>
+                    <td>{{ getNote(etd.id, matiere.idMatiere, Ds) }}</td>
+                    <td>{{ getNote(etd.id, matiere.idMatiere, Examen) }}</td>
+                  </ng-container>
+                  <ng-template #editMode>
+                    <td><input type="number" [(ngModel)]="editedValues[etd.id + '-' + matiere.idMatiere + '-Test']" [value]="editedValues[etd.id + '-' + matiere.idMatiere + '-Test']" class="narrow-input"/></td>
+                    <td><input type="number" [(ngModel)]="editedValues[etd.id + '-' + matiere.idMatiere + '-Ds']" [value]="editedValues[etd.id + '-' + matiere.idMatiere + '-Ds']" class="narrow-input"/></td>
+                    <td><input type="number" [(ngModel)]="editedValues[etd.id + '-' + matiere.idMatiere + '-Examen']" [value]="editedValues[etd.id + '-' + matiere.idMatiere + '-Examen']" class="narrow-input"/></td>
+                  </ng-template>
                 </ng-container>
+                <td *ngIf="editingId !== etd.id; else editButtons">
+                  <a class="edit" title="Edit" data-toggle="tooltip" (click)="toggleEditMode(etd)"><i class="material-icons">&#xE254;</i></a>
+                </td>
+                <ng-template #editButtons>
+                  <td>
+                    <a class="save" title="save" data-toggle="tooltip" (click)="saveChanges(etd)"><i class="material-icons">&#xF272;</i></a>
+                    <a class="delete" title="cancel" data-toggle="tooltip" (click)="cancelEdit()"><i class="material-icons">&#xF272;</i></a>
+                  </td>
+                </ng-template>
             </tr>
           </ng-container>
     </tbody>

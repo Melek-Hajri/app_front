@@ -44,7 +44,7 @@ import { NoteCreateComponent } from './note-create/note-create.component';
     UpdatemoduleComponent,
     AddmoduleComponent,
     NoteListComponent,
-    NoteCreateComponent
+    NoteCreateComponent,
   ],
   imports: [
     BrowserModule,
