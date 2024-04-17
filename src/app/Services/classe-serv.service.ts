@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { classe } from '../Models/classe.model';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../environment/envirnoment';
 
 @Injectable({
@@ -11,7 +11,12 @@ export class ClasseServService {
 
   constructor(private http:HttpClient) { }
   addclasse(cls: classe):Observable<classe> {
-    return this.http.post<classe>(environment.host+"/addclasse/",cls)
+    return this.http.post<classe>(environment.host+"/addclasse/",cls).pipe(
+      catchError(error => {
+        alert("Une erreur s'est produite lors de l'ajout de la classe: champs nécessaire " );
+        return throwError(error);
+      })
+    );
    }
    addListclasse(cls: classe[]): Observable<classe[]> {
     return this.http.post<classe[]>(environment.host+"/addlistclasse/",cls)

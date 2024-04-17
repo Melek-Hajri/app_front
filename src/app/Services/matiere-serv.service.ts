@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Matiere } from '../Models/matiere.model';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../environment/envirnoment';
 
 @Injectable({
@@ -11,7 +11,12 @@ export class MatiereServService {
 
   constructor(private http:HttpClient) { }
   addmatiere(cls: Matiere):Observable<Matiere> {
-    return this.http.post<Matiere>(environment.host+"/addMatiere/",cls)
+    return this.http.post<Matiere>(environment.host+"/addMatiere/",cls).pipe(
+      catchError(error => {
+        alert("Une erreur s'est produite lors de l'ajout de la matière: " + error.error);
+        return throwError(error);
+      })
+    );
    }
    addListmatieres(cls: Matiere[]): Observable<Matiere[]> {
     return this.http.post<Matiere[]>(environment.host+"/addlistMatieres/",cls)
