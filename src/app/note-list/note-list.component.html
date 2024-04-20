@@ -17,7 +17,7 @@
     <div class="col-md-6"> <!-- Adjust the column width as needed -->
       <form [formGroup]="form">
         <div class="form-group">
-          <label for="classe"><h5>Classe:</h5></label>
+          <label for="classe" style="margin-top: 40px;"><h5>Classe:</h5></label>
           <select class="form-control" id="cls" formControlName="cls" (change)="onClassChange()">
             <option value="">Selectionner une classe</option>
             <option *ngFor="let classe of classes" [value]="classe.idclasse">{{ classe.nomClasse }}</option>
