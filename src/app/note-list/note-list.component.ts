@@ -13,6 +13,7 @@ import { TypeNote } from '../Models/enums';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { EmailDonnes } from '../Models/emailDonnes.model';
 
 @Component({
   selector: 'app-note-list',
@@ -131,6 +132,7 @@ export class NoteListComponent implements OnInit {
           const index = this.etds.findIndex(e => e.id === parseInt(etdId));
           const noteIndex = this.etds[index].notes.findIndex(n => n.id === currentNote.id);
           this.etds[index].notes.splice(noteIndex, 1);
+          this.noteServ.deleteNoteEtNotifier(this.etds[index]).subscribe(u =>{})
         });
       }
     } else {
@@ -145,12 +147,11 @@ export class NoteListComponent implements OnInit {
 
       if (currentNote) {
         // Update existing note object
-        this.noteServ.updateNote(currentNote.id,newNote).subscribe(updatedNote => {
+        this.noteServ.updateNoteEtNotifier(currentNote.id,newNote).subscribe(updatedNote => {
           // Replace the existing note object in the local array
           const index = this.etds.findIndex(e => e.id === parseInt(etdId));
           const noteIndex = this.etds[index].notes.findIndex(n => n.id === currentNote.id);
           this.etds[index].notes[noteIndex] = newNote;
-          console.log(newNote);
         });
       } else {
         // Create new note object
@@ -158,6 +159,7 @@ export class NoteListComponent implements OnInit {
           // Add the new note object to the local array
           const index = this.etds.findIndex(e => e.id === parseInt(etdId));
           this.etds[index].notes.push(createdNote);
+          this.noteServ.addNoteEtNotifier(this.etds[index]).subscribe(u =>{})
         });
       }
     }

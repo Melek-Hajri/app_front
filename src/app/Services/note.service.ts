@@ -1,8 +1,10 @@
 import { Note } from '../Models/note.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, forkJoin, switchMap, throwError } from 'rxjs';
 import { environment } from '../environment/envirnoment';
 import { Injectable } from '@angular/core';
+import { EmailDonnes } from '../Models/emailDonnes.model';
+import { Etudiant } from '../Models/etudiant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +53,41 @@ export class NoteService {
   }
   addMatiereToNote(idNote: number, idMat: number): Observable<void> {
     return this.http.put<void>(environment.host + "/addMatiereToNote/" + idNote + "/" + idMat, {});
+  }
+  sendEmailToStudent(details : EmailDonnes): Observable<string> {
+    return this.http.post<string>(environment.host+"/sendMail/", details).pipe(
+      catchError(error => {
+        console.error("Une erreur s'est produite lors de l'envoi de l'e-mail aux étudiants : ", error);
+        return throwError(error);
+      })
+    );
+  }
+  updateNoteEtNotifier(id: number, updatedNote: Note): Observable<String> {
+    return this.updateNote(id, updatedNote).pipe(
+      switchMap(update => {
+          const emailDetails: EmailDonnes = {
+            recipient: updatedNote.etudiant.email, 
+            msgBody: 'Vos notes ont été modifiées, veuillez consulter notre plateforme.',
+            subject: 'Mise à jour des notes'
+          };
+          return this.sendEmailToStudent(emailDetails);
+        })
+      );
+  }
+  addNoteEtNotifier(etd: Etudiant): Observable<String> {
+    const emailDetails: EmailDonnes = {
+      recipient: etd.email, 
+      msgBody: 'Une note a été ajouté, veuillez consulter notre plateforme.',
+      subject: 'Ajout des notes'
+    };
+    return this.sendEmailToStudent(emailDetails);
+  }
+  deleteNoteEtNotifier(etd: Etudiant): Observable<String> {
+    const emailDetails: EmailDonnes = {
+      recipient: etd.email, 
+      msgBody: 'Une note a été supprimé, veuillez consulter notre plateforme.',
+      subject: 'Annulation des notes'
+    };
+    return this.sendEmailToStudent(emailDetails);
   }
 }
