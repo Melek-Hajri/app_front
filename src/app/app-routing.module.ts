@@ -17,6 +17,7 @@ import { EtudiantCreateComponent } from './etudiant-create/etudiant-create.compo
 import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteCreateComponent } from './note-create/note-create.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {path:"listclasses",component:ListClassesComponent},
@@ -35,7 +36,9 @@ const routes: Routes = [
   {path:"addEtudiant",component:EtudiantCreateComponent},
   {path:"updateEtudiant/:id",component:EtudiantUpdateComponent},
   {path:"listeNotes",component:NoteListComponent},
-  {path:"addNote",component:NoteCreateComponent}
+  {path:"addNote",component:NoteCreateComponent},
+  {path:"footer",component:FooterComponent}
+
 
 
 
