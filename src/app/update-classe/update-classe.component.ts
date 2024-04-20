@@ -44,11 +44,12 @@ export class UpdateClasseComponent  implements OnInit {
     usr.nomClasse=this.frominput.controls['nomclasse'].value;
     usr.niveauClasse=this.frominput.controls['niveauclasse'].value;
     
-    this.claseserv.updateclasse(this.id,usr).subscribe(
+    this.claseserv.updateClasseEtNotifier(this.id,usr).subscribe(
       (u)=>{
-  this.route.navigate(['/listclasses'])
+  //this.route.navigate(['/listclasses'])
       }
     )
+    this.route.navigate(['/listclasses'])
     }
     
 
