@@ -1,0 +1,148 @@
+.container {
+    color: #404E67;
+    background: #F5F7FA;
+    font-family: 'Open Sans', sans-serif;
+}
+.table-wrapper {
+    width: 700px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;	
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+}
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+.table-title .add-new {
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+.table-title .add-new i {
+    margin-right: 4px;
+}
+table.table {
+    table-layout: fixed;
+}
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+table.table th:last-child {
+    width: 100px;
+}
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}    
+table.table td a.add {
+    color: #27C46B;
+}
+table.table td a.edit {
+    color: #FFC107;
+}
+table.table td a.delete {
+    color: #E34724;
+}
+table.table td i {
+    font-size: 19px;
+}
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}    
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+table.table .form-control.error {
+    border-color: #f50000;
+}
+table.table td .add {
+    display: none;
+}
+.button-container {
+    display: flex;
+    justify-content: center; /* Aligne les boutons horizontalement */
+    margin-bottom: 20px; /* Espacement en dessous des boutons */
+}
+
+.button-container button {
+    margin-right: 10px; /* Espacement horizontal entre les boutons */
+}
+.container-fluid {
+    padding: 20px; /* Ajoute de l'espace autour du conteneur */
+}
+.container-fluid {
+    padding: 20px; /* Ajoute de l'espace autour du conteneur */
+}
+
+.table-wrapper {
+    width: 100%; /* Fait en sorte que le tableau occupe toute la largeur */
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 10px; /* Ajoute des coins arrondis au tableau */
+}
+
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 20px; /* Augmente l'espace en dessous du titre */
+}
+
+.table-title h2 {
+    margin: 0; /* Supprime les marges autour du titre */
+    font-size: 24px; /* Augmente la taille du titre */
+}
+
+.table-title .add-new {
+    float: right;
+    height: 40px; /* Augmente la hauteur du bouton */
+    font-size: 16px; /* Augmente la taille du texte du bouton */
+    border-radius: 5px; /* Ajoute des coins arrondis au bouton */
+    line-height: 1.5; /* Augmente l'espacement entre les lignes du texte */
+}
+
+.table {
+    table-layout: auto; /* Utilise la largeur automatique des colonnes */
+    font-size: 16px; /* Augmente la taille du texte dans le tableau */
+}
+
+.table th,
+.table td {
+    padding: 12px; /* Augmente l'espacement intérieur des cellules */
+}
+
+.table th {
+    background-color: #f5f5f5; /* Ajoute une couleur de fond aux en-têtes de colonne */
+    font-weight: bold; /* Met en gras le texte des en-têtes de colonne */
+    text-align: center; /* Centre le texte des en-têtes de colonne */
+}
+
+.table td {
+    text-align: center; /* Centre le texte dans les cellules du tableau */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Ajoute une couleur de fond alternative aux lignes du tableau */
+}

@@ -18,6 +18,10 @@ import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.compo
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteCreateComponent } from './note-create/note-create.component';
 import { FooterComponent } from './footer/footer.component';
+import { AgentDashboardComponent } from './agent-dashboard/agent-dashboard.component';
+import { ChefDepartementDashboardComponent } from './chef-departement-dashboard/chef-departement-dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:"listclasses",component:ListClassesComponent},
@@ -37,7 +41,12 @@ const routes: Routes = [
   {path:"updateEtudiant/:id",component:EtudiantUpdateComponent},
   {path:"listeNotes",component:NoteListComponent},
   {path:"addNote",component:NoteCreateComponent},
-  {path:"footer",component:FooterComponent}
+  {path:"footer",component:FooterComponent},
+  {path: 'login',component:LoginComponent},
+  {path: 'admin',component:DashboardComponent},
+  {path: 'chefDepartement',component:ChefDepartementDashboardComponent},
+  {path: 'agent',component:AgentDashboardComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 
 
 

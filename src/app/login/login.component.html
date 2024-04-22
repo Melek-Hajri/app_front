@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">Connexion</h4>
+          </div>
+          <div class="card-body">
+            <form action="" class="mt-5 p-5">
+              <h5 class="text-primary mb-3">Login </h5>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Login" name="login" [(ngModel)]="login">
+                  <label for="floatingInput">Nom d'utilisateur</label>
+              </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password">
+                  <label for="floatingPassword">Mot de passe</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="floatingSelect" aria-label="Role" name="role" [(ngModel)]="role">
+                    <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+                  </select>
+                  <label for="floatingSelect">Role</label>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-outline-success me-md-2" type="button" (click)="mLogin()" >Se connecter</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

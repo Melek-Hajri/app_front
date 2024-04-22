@@ -24,6 +24,12 @@ import { AddmoduleComponent } from './addmodule/addmodule.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteCreateComponent } from './note-create/note-create.component';
 import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ChefDepartementDashboardComponent } from './chef-departement-dashboard/chef-departement-dashboard.component';
+import { AgentDashboardComponent } from './agent-dashboard/agent-dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { EmployeeService } from './Services/employee.service';
 
 @NgModule({
   declarations: [
@@ -47,18 +53,23 @@ import { FooterComponent } from './footer/footer.component';
     NoteListComponent,
     NoteCreateComponent,
     FooterComponent,
+    DashboardComponent,
+    NavbarComponent,
+    ChefDepartementDashboardComponent,
+    AgentDashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),
     provideHttpClient(),// Ajoutez withFetch() ici
-    
+    EmployeeService
    ],
   bootstrap: [AppComponent]
 })

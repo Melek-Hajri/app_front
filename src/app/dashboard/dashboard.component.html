@@ -1,0 +1,147 @@
+<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+  <li class="nav-item" role="presentation">
+      <a class="nav-link active rounded-5" id="home-tab2" href="/admin" role="tab" aria-selected="true">Admins</a>
+  </li>
+  <li class="nav-item" role="presentation">
+      <a class="nav-link rounded-5" id="profile-tab2" href="/chefDepartement" role="tab" aria-selected="false">Chefs de departement</a>
+  </li>
+  <li class="nav-item" role="presentation">
+      <a class="nav-link rounded-5" id="contact-tab2" href="/agent" role="tab" aria-selected="false">Agent</a>
+  </li>
+</ul>
+
+<div class="container-fluid">
+  <div class="table-wrapper">
+      <div class="table-title">
+          <div class="row">
+              <div class="col-sm-8"><h2><b>Liste des admins</b></h2></div>
+              <div class="col-sm-4 text-end"> <!-- Utilisez la classe "text-end" pour aligner le contenu à droite -->
+                  <button type="button" class="btn btn-info add-new" style="color: white;" data-bs-toggle="modal" data-bs-target="#addEmployee" type="submit"><i class="fa fa-plus"></i>Ajouter</button>
+              </div>
+          </div>
+      </div>
+<div class="container-fluid">
+
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Nom d'utilisateur</th>
+          <th scope="col">Mot de passe</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of empList">
+          <td>{{employee.firstname}}</td>
+          <td>{{employee.lastname}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.login}}</td>
+          <td>{{employee.password}}</td>
+          <td>
+              <a class="add" title="Add" data-toggle="tooltip">
+                  <i class="material-icons">&#xE03B;</i>
+              </a>
+              <a class="edit" title="Edit" data-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#editEmployee" (click)="editEmployee(employee)"><i
+                      class="material-icons">&#xE254;</i></a>
+              <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteEmployee(employee)"><i
+                      class="material-icons">&#xE872;</i></a>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+
+<!-- Add employee modal -->
+<div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un admin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+          <form [formGroup]="empDetail">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Nom </label>
+                  <input type="text" formControlName="firstname" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Prenom </label>
+                  <input type="text" formControlName="lastname" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email </label>
+                  <input type="email" formControlName="email" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur </label>
+                  <input type="text" formControlName="login" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Mot de passe </label>
+                  <input type="password" formControlName="password" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addEmployee()">Ajouter un admin</button>
+                </div>
+            </form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit employee modal -->
+<div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier un admin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="empDetail">
+          <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nom </label>
+              <input type="text" formControlName="firstname" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Prenom </label>
+              <input type="text" formControlName="lastname" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email </label>
+              <input type="text" formControlName="email" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur </label>
+              <input type="text" formControlName="login" class="form-control" id="name" aria-describedby="emailHelp" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Mot de passe </label>
+              <input type="text" formControlName="password" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  <button type="button" class="btn btn-outline-success" (click)="updateEmployee()" data-bs-dismiss="modal">Modifier </button>
+                </div>
+            </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div> 
+
+
