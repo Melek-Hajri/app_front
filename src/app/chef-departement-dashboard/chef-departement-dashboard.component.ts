@@ -21,10 +21,10 @@ export class ChefDepartementDashboardComponent {
   deleteEmpUrl : string;
 
   constructor(private formBuilder : FormBuilder, private empService : EmployeeService) { 
-    this.addEmpURL = 'http://localhost:9091/emp/addChefDepartement';
-    this.getEmpURL = 'http://localhost:9091/emp/getAllChefDepartement';
-    this.updateEmpUrl = 'http://localhost:9091/emp/updateChefDepartement';
-    this.deleteEmpUrl = 'http://localhost:9091/emp/deleteChefDepartementById';
+    this.addEmpURL = 'http://localhost:8085/emp/addChefDepartement';
+    this.getEmpURL = 'http://localhost:8085/emp/getAllChefDepartement';
+    this.updateEmpUrl = 'http://localhost:8085/emp/updateChefDepartement';
+    this.deleteEmpUrl = 'http://localhost:8085/emp/deleteChefDepartementById';
   }
 
   ngOnInit(): void {

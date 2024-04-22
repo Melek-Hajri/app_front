@@ -20,10 +20,10 @@ export class AgentDashboardComponent {
   deleteEmpUrl : string;
 
   constructor(private formBuilder : FormBuilder, private empService : EmployeeService) { 
-    this.addEmpURL = 'http://localhost:9091/emp/addAgent';
-    this.getEmpURL = 'http://localhost:9091/emp/getAllAgent';
-    this.updateEmpUrl = 'http://localhost:9091/emp/updateAgent';
-    this.deleteEmpUrl = 'http://localhost:9091/emp/deleteAgentById';
+    this.addEmpURL = 'http://localhost:8085/emp/addAgent';
+    this.getEmpURL = 'http://localhost:8085/emp/getAllAgent';
+    this.updateEmpUrl = 'http://localhost:8085/emp/updateAgent';
+    this.deleteEmpUrl = 'http://localhost:8085/emp/deleteAgentById';
   }
 
   ngOnInit(): void {

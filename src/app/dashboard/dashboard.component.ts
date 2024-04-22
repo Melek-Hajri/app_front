@@ -21,10 +21,10 @@ export class DashboardComponent implements OnInit {
   deleteEmpUrl : string;
 
   constructor(private formBuilder : FormBuilder, private empService : EmployeeService) {
-    this.addEmpURL = 'http://localhost:9091/emp/addAdmin';
-    this.getEmpURL = 'http://localhost:9091/emp/getAllAdmin';
-    this.updateEmpUrl = 'http://localhost:9091/emp/updateAdmin';
-    this.deleteEmpUrl = 'http://localhost:9091/emp/deleteAdminById';
+    this.addEmpURL = 'http://localhost:8085/emp/addAdmin';
+    this.getEmpURL = 'http://localhost:8085/emp/getAllAdmin';
+    this.updateEmpUrl = 'http://localhost:8085/emp/updateAdmin';
+    this.deleteEmpUrl = 'http://localhost:8085/emp/deleteAdminById';
    }
 
   ngOnInit(): void {
